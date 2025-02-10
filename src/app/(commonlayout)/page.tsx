@@ -1,5 +1,5 @@
-import BannerPage from "@/src/components/home/BannerPage";
-import Finding from "@/src/components/home/Finding";
+import BannerPage from "@/src/components/modules/home/BannerPage";
+import Finding from "@/src/components/modules/home/Finding";
 
 const Home = () => {
   return (
