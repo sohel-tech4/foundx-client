@@ -2,8 +2,9 @@ import { Card as NextUiCard, CardHeader, CardFooter } from "@heroui/card";
 import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 import { format } from "date-fns";
+import { IPost } from "@/src/types";
 
-const Card = ({ item }: { item: any }) => {
+const Card = ({ item }: { item: IPost }) => {
   const { title, category, images, city, dateFound, _id } = item || {};
 
   return (
@@ -21,13 +22,13 @@ const Card = ({ item }: { item: any }) => {
         removeWrapper
         alt="Card example background"
         className="scale-120 z-0 h-full w-full -translate-y-6 object-cover"
-        src={images}
+        src={images[0]}
       />
       <CardFooter className="absolute bottom-0 z-10 justify-between border-t-1 border-zinc-100/50 bg-white/30">
         <div>
           <p className="text-tiny text-black">{city}</p>
           <p className="text-tiny text-black">
-            {dateFound}
+            {/* {dateFound} */}
             {format(new Date(dateFound), "dd MMMM, yyyy")}
           </p>
         </div>

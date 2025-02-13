@@ -3,6 +3,7 @@ import { recentPost } from "@/src/services";
 import { Button } from "@heroui/button";
 import Link from "next/link";
 import Card from "../../UI/Card";
+import { IPost } from "@/src/types";
 
 const RecentPosts = async () => {
   const { data } = await recentPost();
@@ -14,8 +15,8 @@ const RecentPosts = async () => {
           A list of items that have been Recently found rported.
         </p>
       </div>
-      <div className="my-8 grid grid-cols-4 justify-center gap-10 sm:grid-cols-1 md: grid-cols-4">
-        {data.map((item: any) => (
+      <div className="my-8 grid justify-center gap-10 grid-cols-4">
+        {data.map((item: IPost) => (
           <Card key={item?._id} item={item}></Card>
         ))}
       </div>
