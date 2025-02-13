@@ -1,13 +1,11 @@
-import { Button } from "@heroui/button";
 import Container from "../../UI/Container";
-import Link from "next/link";
 import { recentPost } from "@/src/services";
+import { Button } from "@heroui/button";
+import Link from "next/link";
+import Card from "../../UI/Card";
 
-const Finding = async () => {
+const RecentPosts = async () => {
   const { data } = await recentPost();
-
-  console.log(data);
-
   return (
     <Container>
       <div className="section-title my-8">
@@ -16,13 +14,10 @@ const Finding = async () => {
           A list of items that have been Recently found rported.
         </p>
       </div>
-      <div className="my-8 grid justify-center gap-10 sm:grid-cols-1 md: grid-cols-4">
-        <h1>Recenlty Posts</h1>
-        <div>
-          {data.map((item: any) => (
-            <h1 key={item.indexof}>{item?.title}</h1>
-          ))}
-        </div>
+      <div className="my-8 grid grid-cols-4 justify-center gap-10 sm:grid-cols-1 md: grid-cols-4">
+        {data.map((item: any) => (
+          <Card key={item?._id} item={item}></Card>
+        ))}
       </div>
       <div className="flex justify-center">
         <Button className="rounded-md bg-default-900 text-default-50" size="md">
@@ -33,4 +28,4 @@ const Finding = async () => {
   );
 };
 
-export default Finding;
+export default RecentPosts;
