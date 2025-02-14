@@ -1,11 +1,11 @@
-import Container from "../../UI/Container";
+import Card from "@/src/components/UI/Card";
+import Container from "@/src/components/UI/Container";
 import { recentPost } from "@/src/services";
+import { IPost } from "@/src/types";
 import { Button } from "@heroui/button";
 import Link from "next/link";
-import Card from "../../UI/Card";
-import { IPost } from "@/src/types";
 
-const RecentPosts = async () => {
+const recentPosts = async () => {
   const { data } = await recentPost();
   return (
     <Container>
@@ -29,4 +29,4 @@ const RecentPosts = async () => {
   );
 };
 
-export default RecentPosts;
+export default recentPosts;
